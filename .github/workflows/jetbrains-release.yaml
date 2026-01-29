@@ -106,13 +106,13 @@ jobs:
         with:
           ref: ${{ github.event.release.tag_name }}
 
-      - name: Import Apple certificate
-        uses: apple-actions/import-codesign-certs@v6
-        with:
-          keychain: ${{ github.run_id }}
-          keychain-password: ${{ github.run_id }}
-          p12-file-base64: ${{ secrets.APPLE_CERT_DATA }}
-          p12-password: ${{ secrets.APPLE_CERT_PASSWORD }}
+      #- name: Import Apple certificate
+      #  uses: apple-actions/import-codesign-certs@v6
+      #  with:
+      #    keychain: ${{ github.run_id }}
+      #    keychain-password: ${{ github.run_id }}
+      #    p12-file-base64: ${{ secrets.APPLE_CERT_DATA }}
+      #    p12-password: ${{ secrets.APPLE_CERT_PASSWORD }}
 
       # Validate wrapper
       - name: Gradle Wrapper Validation
@@ -300,11 +300,11 @@ jobs:
           path: ./extensions/intellij/build/distributions/content/*/*
 
       # Upload binaries as artifacts
-      - name: Upload artifact (darwin-arm64)
-        uses: actions/upload-artifact@v6
-        with:
-          name: continue-binary-darwin-arm64
-          path: ./binary/bin/darwin-arm64/
+      #- name: Upload artifact (darwin-arm64)
+      #  uses: actions/upload-artifact@v6
+      #  with:
+      #    name: continue-binary-darwin-arm64
+      #    path: ./binary/bin/darwin-arm64/
 
       - name: Upload artifact (darwin-x64)
         uses: actions/upload-artifact@v6
